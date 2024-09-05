@@ -1,0 +1,36 @@
+<!-- standalone.component.html -->
+
+
+<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
+  <img
+    [src]="product.image"
+    [alt]="product.title"
+    class="w-1/6 mb-2"
+    title="{{ product.title }}"
+  />
+  <h2 class="mb-2 text-lg text-center">{{ product.title }}</h2>
+  <p>
+    Price: <span class="font-bold">{{ product.price | currency : "USD" }}</span>
+  </p>
+
+  <button
+    class="px-4 py-2 mt-4 text-white rounded"
+    [ngClass]="{
+      'bg-blue-500': !details,
+      'bg-yellow-500': details
+    }"
+    (click)="details = !details"
+  >
+    {{ details ? "Hide" : "Show" }} Details
+  </button>
+
+  <div *ngIf="details">
+    <p>{{ product.description }}</p>
+    <p>
+      Rate:
+      <span [ngStyle]="{ fontWeight: 'bold' }">
+        {{ product.rating.rate | number : "1.2-2" }}
+      </span>
+    </p>
+  </div>
+</div>

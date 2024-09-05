@@ -1,0 +1,14 @@
+.header {
+  font-family: "Inter", sans-serif;
+  background-color: #ffef42;
+  text-align: center;
+  display: block;
+  padding: 12px;
+  margin: 0;
+
+  &__title {
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+  }
+}
